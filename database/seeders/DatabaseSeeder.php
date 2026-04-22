@@ -3,36 +3,54 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        User::updateOrCreate(
-            ['email' => 'admin@example.com'],
+        $users = [
+            // Admins
             [
-                'name' => 'Admin',
-                'password' => Hash::make('password'),
+                'name' => 'Pentadbir Sistem', 'email' => 'admin@example.com',
                 'role' => 'admin',
-                'email_verified_at' => now(),
-            ]
-        );
-
-        User::updateOrCreate(
-            ['email' => 'staff@example.com'],
+            ],
             [
-                'name' => 'Staff',
-                'password' => Hash::make('password'),
+                'name' => 'Norhaslinda binti Mohd Sani', 'email' => 'haslinda@mdr.gov.my',
+                'role' => 'admin',
+            ],
+
+            // Staff
+            [
+                'name' => 'Staff Demo', 'email' => 'staff@example.com',
                 'role' => 'staff',
-                'email_verified_at' => now(),
-            ]
-        );
+            ],
+            [
+                'name' => 'Rizal bin Amiruddin', 'email' => 'rizal@mdr.gov.my',
+                'role' => 'staff',
+            ],
+            [
+                'name' => 'Josephine Ginsandol', 'email' => 'josephine@mdr.gov.my',
+                'role' => 'staff',
+            ],
+            [
+                'name' => 'Hairul Nizam bin Saad', 'email' => 'hairul@mdr.gov.my',
+                'role' => 'staff',
+            ],
+        ];
+
+        foreach ($users as $u) {
+            User::updateOrCreate(
+                ['email' => $u['email']],
+                [
+                    'name'              => $u['name'],
+                    'password'          => Hash::make('password'),
+                    'role'              => $u['role'],
+                    'email_verified_at' => now(),
+                ]
+            );
+        }
 
         $this->call([
             PremiseCategorySeeder::class,
