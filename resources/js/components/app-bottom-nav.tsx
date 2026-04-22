@@ -49,33 +49,38 @@ export function AppBottomNav() {
 
     return (
         <>
-            <nav className="fixed bottom-0 left-0 right-0 z-40 flex h-16 items-stretch border-t bg-background md:hidden">
-                {visibleItems.map((item) => {
-                    const active = isCurrentUrl(item.href);
-                    return (
-                        <Link
-                            key={item.href}
-                            href={item.href}
-                            className={cn(
-                                'flex flex-1 flex-col items-center justify-center gap-0.5 px-1 text-[11px] transition-colors',
-                                active
-                                    ? 'text-primary'
-                                    : 'text-muted-foreground hover:text-foreground',
-                            )}
-                        >
-                            {item.icon && <item.icon className="size-5 shrink-0" />}
-                            <span className="w-full truncate text-center leading-tight">{item.title}</span>
-                        </Link>
-                    );
-                })}
+            <nav
+                className="fixed bottom-0 left-0 right-0 z-40 border-t bg-background md:hidden"
+                style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+            >
+                <div className="flex h-16 items-stretch">
+                    {visibleItems.map((item) => {
+                        const active = isCurrentUrl(item.href);
+                        return (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={cn(
+                                    'flex flex-1 flex-col items-center justify-center gap-0.5 px-1 text-[11px] transition-colors',
+                                    active
+                                        ? 'text-primary'
+                                        : 'text-muted-foreground hover:text-foreground',
+                                )}
+                            >
+                                {item.icon && <item.icon className="size-5 shrink-0" />}
+                                <span className="w-full truncate text-center leading-tight">{item.title}</span>
+                            </Link>
+                        );
+                    })}
 
-                <button
-                    onClick={() => setMoreOpen(true)}
-                    className="flex flex-1 flex-col items-center justify-center gap-0.5 px-1 text-[11px] text-muted-foreground transition-colors hover:text-foreground"
-                >
-                    <Menu className="size-5 shrink-0" />
-                    <span>Lagi</span>
-                </button>
+                    <button
+                        onClick={() => setMoreOpen(true)}
+                        className="flex flex-1 flex-col items-center justify-center gap-0.5 px-1 text-[11px] text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                        <Menu className="size-5 shrink-0" />
+                        <span>Lagi</span>
+                    </button>
+                </div>
             </nav>
 
             <Sheet open={moreOpen} onOpenChange={setMoreOpen}>

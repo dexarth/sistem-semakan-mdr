@@ -15,7 +15,7 @@ export default function AppSidebarLayout({
                 <AppSidebar />
                 <AppContent variant="sidebar" className="overflow-x-hidden">
                     <AppSidebarHeader breadcrumbs={breadcrumbs} />
-                    <div className="pb-16 md:pb-0">
+                    <div className="md:pb-0" style={{ paddingBottom: 'calc(4rem + env(safe-area-inset-bottom))' }}>
                         {children}
                     </div>
                 </AppContent>
