@@ -11,10 +11,13 @@ use App\Http\Controllers\Staff\PremiseProfileController;
 use App\Http\Controllers\Staff\PremiseSearchController;
 use App\Http\Controllers\StaffDashboardController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::get('/', fn () => redirect('/login'))->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('panduan', fn () => Inertia::render('panduan'))->name('panduan');
+
     Route::get('dashboard', function () {
         return redirect()->route(auth()->user()->isAdmin() ? 'admin.dashboard' : 'staff.dashboard');
     })->name('dashboard');

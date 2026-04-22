@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { Building2, ClipboardList, FileText, Search, ShieldCheck, Tag, Truck } from 'lucide-react';
+import { BookOpen, Building2, ClipboardList, FileText, Search, ShieldCheck, Tag, Truck } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -21,10 +21,12 @@ const adminNavItems: NavItem[] = [
     { title: 'Rekod Cukai Pintu', href: '/admin/tax-records', icon: FileText },
     { title: 'Jadual Kutipan Sampah', href: '/admin/waste-schedules', icon: Truck },
     { title: 'Log Semakan', href: '/admin/checking-logs', icon: ClipboardList },
+    { title: 'Panduan Pengguna', href: '/panduan', icon: BookOpen },
 ];
 
 const staffNavItems: NavItem[] = [
     { title: 'Cari Premis', href: '/staff/premises/search', icon: Search },
+    { title: 'Panduan Pengguna', href: '/panduan', icon: BookOpen },
 ];
 
 export function AppSidebar() {

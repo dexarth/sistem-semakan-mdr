@@ -1,5 +1,6 @@
 import { Link, router, usePage } from '@inertiajs/react';
 import {
+    BookOpen,
     Building2,
     ClipboardList,
     FileText,
@@ -111,6 +112,22 @@ export function AppBottomNav() {
                         })}
 
                         {overflowItems.length > 0 && <div className="my-2 border-t" />}
+
+                        <Link
+                            href="/panduan"
+                            onClick={() => setMoreOpen(false)}
+                            className={cn(
+                                'flex items-center gap-3 rounded-lg px-4 py-3 text-sm transition-colors',
+                                isCurrentUrl('/panduan')
+                                    ? 'bg-primary/10 font-medium text-primary'
+                                    : 'text-foreground hover:bg-muted',
+                            )}
+                        >
+                            <BookOpen className="size-5 shrink-0" />
+                            Panduan Pengguna
+                        </Link>
+
+                        <div className="my-2 border-t" />
 
                         <Link
                             href="/settings/profile"
