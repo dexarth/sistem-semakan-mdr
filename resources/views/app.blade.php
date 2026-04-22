@@ -4,6 +4,24 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
+        {{-- Open Graph / Link preview (WhatsApp, Telegram, Facebook, etc.) --}}
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Sistem Semakan MDR">
+        <meta property="og:title" content="Sistem Semakan MDR — Majlis Daerah Ranau">
+        <meta property="og:description" content="Platform pengurusan rekod premis, cukai pintu, rekod bangunan dan jadual kutipan sampah bagi kawasan Majlis Daerah Ranau, Sabah.">
+        <meta property="og:url" content="{{ config('app.url') }}">
+        <meta property="og:image" content="{{ config('app.url') }}/apple-touch-icon.png">
+        <meta property="og:locale" content="ms_MY">
+
+        {{-- Twitter / X card --}}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Sistem Semakan MDR — Majlis Daerah Ranau">
+        <meta name="twitter:description" content="Platform pengurusan rekod premis, cukai pintu, rekod bangunan dan jadual kutipan sampah bagi kawasan Majlis Daerah Ranau, Sabah.">
+        <meta name="twitter:image" content="{{ config('app.url') }}/apple-touch-icon.png">
+
+        {{-- General --}}
+        <meta name="description" content="Platform pengurusan rekod premis, cukai pintu, rekod bangunan dan jadual kutipan sampah bagi kawasan Majlis Daerah Ranau, Sabah.">
+
         {{-- Inline script to detect system dark mode preference and apply it immediately --}}
         <script>
             (function() {
