@@ -555,8 +555,8 @@ class PremiseSeeder extends Seeder
                     [
                         'submission_status' => $subStatus,
                         'approval_status'   => $appStatus,
-                        'submission_date'   => $subOffset ? now()->modify($subOffset . ' months')->toDateString() : null,
-                        'approval_date'     => $appOffset ? now()->modify($appOffset . ' months')->toDateString() : null,
+                        'submission_date'   => $subOffset ? now()->modify($subOffset)->toDateString() : null,
+                        'approval_date'     => $appOffset ? now()->modify($appOffset)->toDateString() : null,
                         'remarks'           => $remarks,
                     ]
                 );
