@@ -1,4 +1,5 @@
 import { Head } from '@inertiajs/react';
+import { formatDate } from '@/lib/utils';
 import { Building2, Calendar, CheckCircle2, FileText, XCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -112,28 +113,30 @@ export default function StaffPremiseProfile({ premise, wasteSchedule, currentYea
                         {premise.tax_records.length === 0 ? (
                             <p className="text-sm text-muted-foreground">Tiada rekod cukai.</p>
                         ) : (
-                            <table className="w-full text-sm">
-                                <thead className="bg-muted text-muted-foreground">
-                                    <tr>
-                                        <th className="px-3 py-2 text-left">Tahun</th>
-                                        <th className="px-3 py-2 text-left">Status</th>
-                                        <th className="px-3 py-2 text-left">Amaun Tertunggak</th>
-                                        <th className="px-3 py-2 text-left">Amaun Dibayar</th>
-                                        <th className="px-3 py-2 text-left">Tarikh Bayar</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y">
-                                    {premise.tax_records.map(t => (
-                                        <tr key={t.id} className="hover:bg-muted/40">
-                                            <td className="px-3 py-2 font-medium">{t.tax_year}</td>
-                                            <td className="px-3 py-2"><TaxStatusBadge status={t.payment_status} /></td>
-                                            <td className="px-3 py-2">{t.amount_due ? `RM ${t.amount_due}` : '—'}</td>
-                                            <td className="px-3 py-2">{t.amount_paid ? `RM ${t.amount_paid}` : '—'}</td>
-                                            <td className="px-3 py-2">{t.payment_date ?? '—'}</td>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm">
+                                    <thead className="bg-muted text-muted-foreground">
+                                        <tr>
+                                            <th className="px-3 py-2 text-left">Tahun</th>
+                                            <th className="px-3 py-2 text-left">Status</th>
+                                            <th className="px-3 py-2 text-left">Amaun Tertunggak</th>
+                                            <th className="px-3 py-2 text-left">Amaun Dibayar</th>
+                                            <th className="px-3 py-2 text-left">Tarikh Bayar</th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody className="divide-y">
+                                        {premise.tax_records.map(t => (
+                                            <tr key={t.id} className="hover:bg-muted/40">
+                                                <td className="px-3 py-2 font-medium">{t.tax_year}</td>
+                                                <td className="px-3 py-2"><TaxStatusBadge status={t.payment_status} /></td>
+                                                <td className="px-3 py-2">{t.amount_due ? `RM ${t.amount_due}` : '—'}</td>
+                                                <td className="px-3 py-2">{t.amount_paid ? `RM ${t.amount_paid}` : '—'}</td>
+                                                <td className="px-3 py-2">{formatDate(t.payment_date)}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
                         )}
                     </CardContent>
                 </Card>
@@ -147,28 +150,30 @@ export default function StaffPremiseProfile({ premise, wasteSchedule, currentYea
                         {premise.building_records.length === 0 ? (
                             <p className="text-sm text-muted-foreground">Tiada rekod bangunan.</p>
                         ) : (
-                            <table className="w-full text-sm">
-                                <thead className="bg-muted text-muted-foreground">
-                                    <tr>
-                                        <th className="px-3 py-2 text-left">Status Hantar</th>
-                                        <th className="px-3 py-2 text-left">Status Lulus</th>
-                                        <th className="px-3 py-2 text-left">Tarikh Hantar</th>
-                                        <th className="px-3 py-2 text-left">Tarikh Lulus</th>
-                                        <th className="px-3 py-2 text-left">Catatan</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y">
-                                    {premise.building_records.map(b => (
-                                        <tr key={b.id} className="hover:bg-muted/40">
-                                            <td className="px-3 py-2"><BuildingStatusBadge status={b.submission_status} /></td>
-                                            <td className="px-3 py-2">{b.approval_status ? <BuildingStatusBadge status={b.approval_status} /> : '—'}</td>
-                                            <td className="px-3 py-2">{b.submission_date ?? '—'}</td>
-                                            <td className="px-3 py-2">{b.approval_date ?? '—'}</td>
-                                            <td className="px-3 py-2 text-muted-foreground">{b.remarks ?? '—'}</td>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm">
+                                    <thead className="bg-muted text-muted-foreground">
+                                        <tr>
+                                            <th className="px-3 py-2 text-left">Status Hantar</th>
+                                            <th className="px-3 py-2 text-left">Status Lulus</th>
+                                            <th className="px-3 py-2 text-left">Tarikh Hantar</th>
+                                            <th className="px-3 py-2 text-left">Tarikh Lulus</th>
+                                            <th className="px-3 py-2 text-left">Catatan</th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody className="divide-y">
+                                        {premise.building_records.map(b => (
+                                            <tr key={b.id} className="hover:bg-muted/40">
+                                                <td className="px-3 py-2"><BuildingStatusBadge status={b.submission_status} /></td>
+                                                <td className="px-3 py-2">{b.approval_status ? <BuildingStatusBadge status={b.approval_status} /> : '—'}</td>
+                                                <td className="px-3 py-2">{formatDate(b.submission_date)}</td>
+                                                <td className="px-3 py-2">{formatDate(b.approval_date)}</td>
+                                                <td className="px-3 py-2 text-muted-foreground">{b.remarks ?? '—'}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
                         )}
                     </CardContent>
                 </Card>
