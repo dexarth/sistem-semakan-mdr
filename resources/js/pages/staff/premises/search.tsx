@@ -57,7 +57,7 @@ export default function PremisesSearch({ premises, filters }: Props) {
                         <p className="text-sm text-muted-foreground">
                             Menunjukkan {premises.from}–{premises.to} daripada {premises.total} hasil
                         </p>
-                        <div className="rounded-lg border overflow-hidden">
+                        <div className="rounded-lg border overflow-x-auto">
                             <table className="w-full text-sm">
                                 <thead className="bg-muted text-muted-foreground">
                                     <tr>

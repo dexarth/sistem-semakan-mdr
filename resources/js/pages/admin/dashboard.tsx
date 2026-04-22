@@ -189,6 +189,7 @@ export default function AdminDashboard({ stats, arrearsRecords, pendingBuilding,
                             {arrearsRecords.length === 0 ? (
                                 <p className="px-6 py-4 text-sm text-muted-foreground">Tiada tunggakan tahun ini.</p>
                             ) : (
+                                <div className="overflow-x-auto">
                                 <table className="w-full text-sm">
                                     <thead className="border-t bg-muted text-muted-foreground">
                                         <tr>
@@ -210,6 +211,7 @@ export default function AdminDashboard({ stats, arrearsRecords, pendingBuilding,
                                         ))}
                                     </tbody>
                                 </table>
+                                </div>
                             )}
                         </CardContent>
                     </Card>
@@ -224,6 +226,7 @@ export default function AdminDashboard({ stats, arrearsRecords, pendingBuilding,
                             {pendingBuilding.length === 0 ? (
                                 <p className="px-6 py-4 text-sm text-muted-foreground">Tiada rekod dalam semakan.</p>
                             ) : (
+                                <div className="overflow-x-auto">
                                 <table className="w-full text-sm">
                                     <thead className="border-t bg-muted text-muted-foreground">
                                         <tr>
@@ -245,6 +248,7 @@ export default function AdminDashboard({ stats, arrearsRecords, pendingBuilding,
                                         ))}
                                     </tbody>
                                 </table>
+                                </div>
                             )}
                         </CardContent>
                     </Card>
@@ -265,6 +269,7 @@ export default function AdminDashboard({ stats, arrearsRecords, pendingBuilding,
                         {recentLogs.length === 0 ? (
                             <p className="px-6 py-4 text-sm text-muted-foreground">Tiada log semakan.</p>
                         ) : (
+                            <div className="overflow-x-auto">
                             <table className="w-full text-sm">
                                 <thead className="border-t bg-muted text-muted-foreground">
                                     <tr>
@@ -286,6 +291,7 @@ export default function AdminDashboard({ stats, arrearsRecords, pendingBuilding,
                                     ))}
                                 </tbody>
                             </table>
+                            </div>
                         )}
                     </CardContent>
                 </Card>

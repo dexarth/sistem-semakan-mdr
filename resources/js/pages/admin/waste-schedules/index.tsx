@@ -96,7 +96,7 @@ export default function WasteSchedulesIndex({ schedules, filters, categories, da
                     <Button type="submit" size="icon" variant="outline"><Search className="size-4" /></Button>
                 </form>
 
-                <div className="rounded-lg border overflow-hidden">
+                <div className="rounded-lg border overflow-x-auto">
                     <table className="w-full text-sm">
                         <thead className="bg-muted text-muted-foreground">
                             <tr>

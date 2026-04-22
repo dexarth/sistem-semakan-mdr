@@ -99,7 +99,7 @@ export default function TaxRecordsIndex({ records, filters, statuses, currentYea
                     )}
                 </form>
 
-                <div className="rounded-lg border overflow-hidden">
+                <div className="rounded-lg border overflow-x-auto">
                     <table className="w-full text-sm">
                         <thead className="bg-muted text-muted-foreground">
                             <tr>
